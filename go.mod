@@ -4,7 +4,7 @@ go 1.20
 
 require (
 	github.com/caarlos0/env/v7 v7.1.0
-	github.com/rs/zerolog v1.29.0
+	github.com/rs/zerolog v1.29.1
 )
 
 require (
