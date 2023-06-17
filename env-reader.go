@@ -1,38 +1,37 @@
 package config
 
 import (
+	"context"
+
 	"github.com/caarlos0/env/v8"
-	"github.com/rs/zerolog"
+	"github.com/juju/zaputil/zapctx"
 )
 
-func ReadEnvConfig(cfg any, opts *env.Options) error {
-	return ReadEnvConfigWithLogger(zerolog.DefaultContextLogger, cfg, opts)
-}
+func ReadEnvConfig(ctx context.Context, cfg any, opts *env.Options) error {
+	sugaredLogger := zapctx.Logger(ctx).Sugar()
+	sugaredLogger.Debugf("config input: %++v", cfg)
 
-func ReadEnvConfigWithLogger(logger *zerolog.Logger, cfg any, opts *env.Options) error {
-	logger.Debug().Msgf("config input: %++v", cfg)
-
-	logger.Trace().Msgf("options: %++v", opts)
+	sugaredLogger.Debugf("options: %++v", opts)
 
 	if opts == nil {
 		if err := env.Parse(cfg); err != nil {
-			logger.Error().Err(err).Msg("Failed to read configuration from environment")
+			sugaredLogger.Error("%w: %s", err, "Failed to read configuration from environment")
 
 			return err
 		}
 
-		logger.Trace().Msgf("cfg output: %++v", cfg)
+		sugaredLogger.Debugf("cfg output: %++v", cfg)
 
 		return nil
 	}
 
 	if err := env.ParseWithOptions(cfg, *opts); err != nil {
-		logger.Error().Err(err).Msg("Failed to read configuration from environment")
+		sugaredLogger.Error("%w: %s", err, "Failed to read configuration from environment")
 
 		return err
 	}
 
-	logger.Trace().Msgf("cfg output: %++v", cfg)
+	sugaredLogger.Debugf("cfg output: %++v", cfg)
 
 	return nil
 }
