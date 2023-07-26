@@ -3,7 +3,7 @@ package config
 import (
 	"context"
 
-	"github.com/caarlos0/env/v8"
+	"github.com/caarlos0/env/v9"
 	"github.com/juju/zaputil/zapctx"
 )
 
