@@ -1,19 +1,22 @@
-package config
+package envreader
 
 import (
 	"context"
 
+	"github.com/caarlos0/env/v10"
 	"github.com/pkg/errors"
+	"go.uber.org/zap/zapcore"
 
-	"github.com/caarlos0/env/v9"
 	"github.com/juju/zaputil/zapctx"
 )
 
 func ReadEnvConfig(ctx context.Context, cfg any, opts *env.Options) error {
 	sugaredLogger := zapctx.Logger(ctx).Sugar()
-	sugaredLogger.Debugf("config input: %++v", cfg)
 
-	sugaredLogger.Debugf("options: %++v", opts)
+	if sugaredLogger.Level() == zapcore.DebugLevel {
+		sugaredLogger.Debugf("config input: %++v", cfg)
+		sugaredLogger.Debugf("options: %++v", opts)
+	}
 
 	if opts == nil {
 		if err := env.Parse(cfg); err != nil {
