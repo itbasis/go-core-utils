@@ -12,7 +12,6 @@ linters:
     - ineffassign
     - staticcheck
     - unused
-    - unused
     - asasalint
     - bodyclose
     - containedctx
@@ -32,14 +31,16 @@ linters:
     - gomnd
     - gomoddirectives
     - gosec
+    - govet
+    - grouper
     - misspell
     - nilerr
     - nlreturn
     - noctx
     - prealloc
+    - predeclared
     - promlinter
     - revive
-    - structcheck
     - wastedassign
     - tagliatelle
     - tenv
@@ -53,7 +54,7 @@ linters:
     - wrapcheck
     - wsl
     - ginkgolinter
-#    - interfacebloat
+    - interfacebloat
 
 linters-settings:
   varnamelen:
