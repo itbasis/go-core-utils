@@ -2,7 +2,7 @@
 ---
 image:https://img.shields.io/github/go-mod/go-version/itbasis/go-core-utils[GitHub go.mod Go version]
 image:https://img.shields.io/badge/godoc-reference-blue.svg[link=https://pkg.go.dev/github.com/itbasis/go-core-utils]
-image:https://img.shields.io/github/v/tag/itbasis/go-core-utils[GitHub tag (with filter)]
+image:https://img.shields.io/github/v/release/itbasis/go-core-utils[GitHub Release]
 https://goreportcard.com/report/github.com/itbasis/go-core-utils[image:https://goreportcard.com/badge/github.com/itbasis/go-core-utils[Go Report Card]]
 
 . Used by https://github.com/caarlos0/env[env]
