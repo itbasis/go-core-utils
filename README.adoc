@@ -8,6 +8,8 @@ https://goreportcard.com/report/github.com/itbasis/go-core-utils[image:https://g
 . Used by https://github.com/caarlos0/env[env]
 . Used by https://github.com/juju/zaputil[zaputil]
 
+IMPORTANT: The project has moved to another repository: https://github.com/itbasis/go-tools
+
 == Get module
 
 ```
